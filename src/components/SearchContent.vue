@@ -23,10 +23,11 @@ const events = useResult(result, [], data => data.listEvents.items)
 <style lang="scss" scoped>
 .cards-wrapper {
   display: flex;
+  padding: 0;
 }
 .card-wrapper {
   list-style: none;
   padding: 0 10px;
-  width: 30%;
+  width: calc(100% / 3);
 }
 </style>

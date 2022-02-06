@@ -4,18 +4,21 @@ import { useQuery, useResult } from '@vue/apollo-composable'
 import { inject } from 'vue'
 import EventCard from './card/EventCard.vue'
 
+const props = defineProps<{
+  events: object[]
+}>()
 const searchString = inject('searchString')
 
 const { result } = useQuery(GET_EVENT_QUERY,
-  () => ({
+  () =>{
+  return ({
     search: searchString.value,
-  })
+  })}
 )
-const events = useResult(result, [], data => data.listEvents.items)
 </script>
 <template>
   <ul class="cards-wrapper">
-    <li v-for="event in events" :key="event.id " class="card-wrapper">
+    <li v-for="event in props.events" :key="event.id " class="card-wrapper">
       <EventCard :event="event" />
     </li>
   </ul>

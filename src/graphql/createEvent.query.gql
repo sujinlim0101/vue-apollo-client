@@ -1,0 +1,8 @@
+mutation createEvent ($description: String!, $name: String!, $when: String!, $where: String!, $imageURL: AWSURL){
+  createEvent(description: $description, name: $name, when: $when, where: $where, imageURL: $imageURL) {
+    id
+    description
+    name
+    imageURL
+  }
+}

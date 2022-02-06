@@ -2,8 +2,17 @@
 import { provide, ref } from 'vue'
 import TheHeader from './components/TheHeader.vue'
 import SaerchContent from './components/SearchContent.vue'
+import { useQuery, useResult } from '@vue/apollo-composable'
+import GET_EVENT_QUERY from './graphql/getEvent.query.gql'
 
 const searchString = ref<string>()
+const { result } = useQuery(GET_EVENT_QUERY,
+  () =>{
+  return ({
+    search: searchString.value,
+  })}
+)
+const events = useResult(result, [], data => data.listEvents.items)
 const updateSearchString = (newVal: string) => {
   searchString.value = newVal
 }
@@ -15,7 +24,7 @@ provide('updateSearchString', updateSearchString)
 
 <template>
   <TheHeader />
-  <SaerchContent />
+  <SaerchContent :events="events"/>
   <router-view />
 </template>
 

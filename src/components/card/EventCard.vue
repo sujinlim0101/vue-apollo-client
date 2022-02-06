@@ -8,9 +8,8 @@ type Party = {
 const props = defineProps<{
   event: Party
 }>()
-
-
 </script>
+
 <template>
   <div class="card" >
     <div class="card-img-wrapper">
@@ -22,6 +21,7 @@ const props = defineProps<{
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .card {
   text-align: left;

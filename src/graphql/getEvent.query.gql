@@ -1,0 +1,10 @@
+query GetEvent($search: String){
+  listEvents(filter: {name: {contains: $search}}) {
+    items {
+      id
+      description
+      name
+      imageURL
+    }
+  }
+}

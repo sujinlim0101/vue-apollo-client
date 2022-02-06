@@ -7,7 +7,7 @@ const updateSearchString = inject('updateSearchString')
 <template>
   <nav class="global-header">
     <div>
-      <a>홈</a>
+      <router-link to="/">홈</router-link>
       <input
         class="global-search-input"
         :value="searchString"
@@ -15,7 +15,7 @@ const updateSearchString = inject('updateSearchString')
         placeholder="이벤트를 검색해보세요."
       >
     </div>
-    <a>이벤트 추가</a>
+    <router-link to="/new-event">이벤트 추가</router-link>
   </nav>
 </template>
 <style lang="scss" scoped>

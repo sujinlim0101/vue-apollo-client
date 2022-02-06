@@ -16,6 +16,7 @@ provide('updateSearchString', updateSearchString)
 <template>
   <TheHeader />
   <SaerchContent />
+  <router-view />
 </template>
 
 <style lang="scss" scoped>

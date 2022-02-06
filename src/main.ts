@@ -2,6 +2,7 @@ import { ApolloClient, createHttpLink, InMemoryCache, ApolloLink } from '@apollo
 import { setContext } from "@apollo/client/link/context";
 import { createApp, h, provide } from 'vue'
 import { DefaultApolloClient } from '@vue/apollo-composable'
+import { router } from './router'
 import App from './App.vue'
 
 const httpLink = createHttpLink({
@@ -31,4 +32,5 @@ const app = createApp({
   },
   render: () => h(App),
 })
+app.use(router)
 app.mount('#app')
